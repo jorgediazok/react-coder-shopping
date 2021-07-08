@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container">
-        <Link className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           DevsShop
         </Link>
         <button
@@ -26,17 +26,17 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarScroll">
           <ul className="navbar-nav m-auto my-2 my-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Nosotros <span className="sr-only">(current)</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Productos
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Ofertas
               </Link>
             </li>
@@ -46,16 +46,16 @@ const Navbar = () => {
               <input
                 className="px-2 search"
                 type="search"
-                placeholder="Search"
+                placeholder="Search Product"
                 aria-label="Search"
               />
               <button className="button" type="submit">
                 <i className="fas fa-search"></i>
               </button>
             </form>
-            <i className="fas fa-shopping-cart"></i>
           </div>
         </div>
+        <i className="fas fa-shopping-cart"></i>
       </div>
     </nav>
   );
