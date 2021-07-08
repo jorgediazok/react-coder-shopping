@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  background-color: #191919;
+}
+
+.fa-bars {
+  color: #fff;
+  font-size: 1.3em;
+}
+
+.navbar-brand {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #fff;
+}
+
+@media screen and (max-width: 650px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+}
+
+.navbar-brand:hover {
+  color: rgb(248, 26, 92);
+}
+
+.nav-link {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.nav-link:hover {
+  color: rgb(248, 26, 92);
+}
+
+.search {
+  height: 40px;
+  width: 100%;
+  border-radius: 60px;
+  outline: none;
+  margin-right: -35px;
+  border: 2px solid rgb(248, 26, 92);
+}
+
+.search:focus {
+  outline: none;
+}
+
+.button {
+  height: 40px;
+  width: 40%;
+  outline: none;
+  border: none;
+  background: rgb(248, 26, 92);
+  color: white;
+  border-radius: 60px;
+  font-weight: 700;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-shopping-cart {
+  font-size: 2em;
+  color: rgb(248, 26, 92);
+  margin-left: 30px;
+}
