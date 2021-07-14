@@ -47,7 +47,7 @@
   outline: none;
 }
 
-.button {
+.btn-search {
   height: 40px;
   width: 60px;
   outline: none;
@@ -62,13 +62,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.fa-shopping-cart {
-  font-size: 2em;
-  color: rgb(248, 26, 92);
-  margin-left: 30px;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 975px) {
@@ -90,20 +83,13 @@
     justify-content: center;
   }
 
-  .fa-shopping-cart {
-    font-size: 1.5em;
-    position: fixed;
-    top: 16px;
-    right: 80px;
-  }
-
   .search {
     margin-top: 15px;
     margin-bottom: 15px;
     width: 300px;
   }
 
-  .button {
+  .btn-search {
     margin-top: 15px;
   }
 }

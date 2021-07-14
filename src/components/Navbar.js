@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+//COMPONENTS
+import CartWidget from './CartWidget';
+
 //STYLES
 import '../styles/Navbar.css';
 
@@ -49,13 +52,13 @@ const Navbar = () => {
                 placeholder="Search Product"
                 aria-label="Search"
               />
-              <button className="button" type="submit">
+              <button className="btn-search" type="submit">
                 <i className="fas fa-search"></i>
               </button>
             </form>
           </div>
         </div>
-        <i className="fas fa-shopping-cart"></i>
+        <CartWidget />
       </div>
     </nav>
   );
