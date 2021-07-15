@@ -30,3 +30,15 @@
   font-weight: bold;
   font-size: 1.4rem;
 }
+
+.btn-cart {
+  margin-left: 10px;
+  width: 160px;
+  border-radius: 20px;
+  background-color: rgb(248, 46, 92);
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}

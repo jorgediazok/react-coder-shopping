@@ -6,20 +6,11 @@ import ItemCount from './ItemCount';
 //STYLES
 import '../styles/ItemListContainer.css';
 
-const ItemListContainer = ({
-  greeting,
-  onAdd,
-  onSubstract,
-  productsCounter,
-}) => {
+const ItemListContainer = ({ greeting }) => {
   return (
     <div className="itemsContainer">
       <h1 className="greeting">{greeting}</h1>
-      <ItemCount
-        onAdd={onAdd}
-        onSubstract={onSubstract}
-        productsCounter={productsCounter}
-      />
+      <ItemCount />
     </div>
   );
 };
