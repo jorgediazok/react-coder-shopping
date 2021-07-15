@@ -7,7 +7,7 @@ import CartWidget from './CartWidget';
 //STYLES
 import '../styles/Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ productsCounter }) => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container">
@@ -58,7 +58,7 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-        <CartWidget />
+        <CartWidget productsCounter={productsCounter} />
       </div>
     </nav>
   );

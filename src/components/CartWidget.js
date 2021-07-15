@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //STYLES
 import '../styles/CartWidget.css';
 
-const CartWidget = () => {
-  const [productsCounter, setProductsCounter] = useState(0);
-
+const CartWidget = ({ productsCounter }) => {
   return (
     <>
       <i className="fas fa-shopping-cart"></i>

@@ -1,8 +1,9 @@
 .itemsContainer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 180px;
 }
 
 .greeting {
