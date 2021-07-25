@@ -1,10 +1,10 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 //STYLES
 import '../styles/Item.css';
 
 const Item = ({ item }) => {
-  const { title, price, description, pictureUrl } = item;
+  const { title, price, description, pictureUrl, id } = item;
 
   return (
     <div className="card">
@@ -15,9 +15,9 @@ const Item = ({ item }) => {
           <strong>$ {price}</strong>
         </p>
         <p className="card-text">{description}</p>
-        <a href="/" className="btn btn-primary card-btn">
+        <Link to={`/item/${id}`} className="btn btn-primary card-btn">
           Detalles
-        </a>
+        </Link>
       </div>
     </div>
   );

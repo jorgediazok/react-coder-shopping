@@ -1,6 +1,7 @@
 export const data = [
   {
     id: 1,
+    category: 'comfort',
     title: 'Developer Chair',
     description: 'Una silla ideal para estar todo el día sentado programando.',
     price: 2500,
@@ -9,6 +10,7 @@ export const data = [
   },
   {
     id: 2,
+    category: 'tecnologia',
     title: 'Monitor Ultra HD LG',
     description:
       'Un monitor re piola para jugar a lo que quieras y programar en React.',
@@ -18,6 +20,7 @@ export const data = [
   },
   {
     id: 3,
+    category: 'accesorios',
     title: 'Mouse Genius 2000',
     description:
       'Un mouse como los que usabas para jugar al Monkey Island en 1994.',
@@ -27,6 +30,7 @@ export const data = [
   },
   {
     id: 4,
+    category: 'accesorios',
     title: 'Teclado Manson 400xd',
     description:
       'Un teclado super cómodo donde no le pifias a ninguna tecla ni de casualidad.',

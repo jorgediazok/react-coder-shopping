@@ -29,18 +29,18 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarScroll">
           <ul className="navbar-nav m-auto my-2 my-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Nosotros <span className="sr-only">(current)</span>
+              <Link className="nav-link" to="/category/comfort">
+                Comfort <span className="sr-only">(current)</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Productos
+              <Link className="nav-link" to="/category/tecnologia">
+                Tecnología
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Ofertas
+              <Link className="nav-link" to="/category/accesorios">
+                Accesorios
               </Link>
             </li>
           </ul>
@@ -58,7 +58,9 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-        <CartWidget />
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
       </div>
     </nav>
   );

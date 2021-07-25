@@ -1,29 +1,33 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 //COMPONENTS
-import ItemDetail from './ItemDetail';
+import ItemDetail from '../components/ItemDetail';
+
+//DATA
+import { data } from '../data/data';
 
 //STYLES
 import '../styles/ItemDetailContainer.css';
 
-const ItemDetailContainer = ({ data }) => {
-  console.log(data);
-  const [items, setItems] = useState([]);
+const ItemDetailContainer = () => {
+  const [item, setItem] = useState([]);
+  let { id } = useParams();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setItems(data);
+      setItem(data.filter((item) => item.id === id));
     }, 2000);
     return () => clearTimeout(timer);
-  }, [data]);
+  }, [id]);
+
+  console.log(item);
 
   return (
     <>
       <h1 style={{ textAlign: 'center', marginTop: '30px' }}>DETAILS</h1>
       <div className="itemsContainer">
-        {items
-          .map((item) => <ItemDetail item={item} key={item.id} />)
-          .slice(0, 1)}
+        <ItemDetail item={item} />
       </div>
     </>
   );
