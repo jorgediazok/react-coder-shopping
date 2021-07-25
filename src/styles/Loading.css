@@ -1,0 +1,10 @@
+.spinner__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70%;
+}
+
+.spinner__image {
+  width: 200px;
+}

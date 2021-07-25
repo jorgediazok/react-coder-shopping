@@ -8,19 +8,25 @@ import ItemList from '../components/ItemList';
 //DATA
 import { data } from '../data/data';
 
+//SPINNER
+import Loading from '../components/Loading';
+
 //STYLES
 import '../styles/ItemListContainer.css';
 
 const ItemListContainer = () => {
-  //DELAY DATA IN 2 SECONDS
+  const [loading, setLoading] = useState(true);
   const [delayedData, setDelayedData] = useState([]);
   const { categoryId } = useParams();
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      setLoading(true);
       if (categoryId === undefined) {
+        setLoading(false);
         setDelayedData(data);
       } else {
+        setLoading(false);
         setDelayedData(data.filter((item) => item.category === categoryId));
       }
     }, 2000);
@@ -30,7 +36,7 @@ const ItemListContainer = () => {
   return (
     <>
       <div className="itemsContainer">
-        <ItemList items={delayedData} />
+        {loading ? <Loading /> : <ItemList items={delayedData} />}
       </div>
     </>
   );

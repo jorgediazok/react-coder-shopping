@@ -1,6 +1,6 @@
 export const data = [
   {
-    id: 1,
+    id: 'adss34f38734uff',
     category: 'comfort',
     title: 'Developer Chair',
     description: 'Una silla ideal para estar todo el día sentado programando.',
@@ -9,7 +9,7 @@ export const data = [
       'https://pbs.twimg.com/profile_images/930636928948539392/hMVL7LVq_400x400.jpg',
   },
   {
-    id: 2,
+    id: 'aZsfi348579',
     category: 'tecnologia',
     title: 'Monitor Ultra HD LG',
     description:
@@ -19,7 +19,7 @@ export const data = [
       'https://mallweb.com.ar/media/catalog/product/cache/1/image/900x/9df78eab33525d08d6e5fb8d27136e95/g/i/gimage_28695.jpg',
   },
   {
-    id: 3,
+    id: 'fsgdf858dldk',
     category: 'accesorios',
     title: 'Mouse Genius 2000',
     description:
@@ -29,7 +29,7 @@ export const data = [
       'https://d34zlyc2cp9zm7.cloudfront.net/products/6240434b3a221dd69dfc70f57e29dd23443c04be45a23b5075ceaf2a7bcbe6d1.jpg_500',
   },
   {
-    id: 4,
+    id: 'flkgfdg84589gk',
     category: 'accesorios',
     title: 'Teclado Manson 400xd',
     description:
