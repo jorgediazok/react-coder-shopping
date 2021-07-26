@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 //COMPONENTS
 import ItemDetail from '../components/ItemDetail';
@@ -12,9 +12,7 @@ import '../styles/ItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState([]);
-  const location = useLocation();
-  const id = location.pathname.split('/').pop();
-  console.log(id);
+  const { id } = useParams();
 
   useEffect(() => {
     setItem(data.filter((item) => item.id === id));

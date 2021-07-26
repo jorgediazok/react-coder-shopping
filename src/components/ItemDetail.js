@@ -1,6 +1,9 @@
 //STYLES
 import '../styles/ItemDetail.css';
 
+//COMPONENTS
+// import ItemCount from './ItemCount';
+
 const ItemDetail = ({ item }) => {
   console.log(item);
   return (
@@ -20,11 +23,7 @@ const ItemDetail = ({ item }) => {
           <h3 className="py-3">{item[0]?.title}</h3>
           <h2 className="mb-3">$ {item[0]?.price}</h2>
           <div className="details__inputContainer">
-            <input
-              type="number"
-              placeholder="Cantidad"
-              className="details__input"
-            />
+            {/* <ItemCount /> */}
             <button className="details__button mt-3">Agregar al Carrito</button>
           </div>
           <h4 className="mt-4 mb-2">Detalles del producto</h4>

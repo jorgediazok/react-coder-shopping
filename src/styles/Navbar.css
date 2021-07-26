@@ -8,6 +8,10 @@
   background-color: #191919;
 }
 
+.activeClass {
+  border-bottom: 3px solid rgb(248, 26, 92);
+}
+
 .fa-bars {
   color: #fff;
   font-size: 1.3em;

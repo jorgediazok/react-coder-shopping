@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
 //COMPONENTS
-// import ItemCount from './ItemCount';
 import ItemList from '../components/ItemList';
 
 //DATA
@@ -20,8 +19,9 @@ const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   useEffect(() => {
+    setLoading(true);
+
     const timer = setTimeout(() => {
-      setLoading(true);
       if (categoryId === undefined) {
         setLoading(false);
         setDelayedData(data);
