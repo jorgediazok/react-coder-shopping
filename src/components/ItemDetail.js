@@ -2,7 +2,7 @@
 import '../styles/ItemDetail.css';
 
 //COMPONENTS
-// import ItemCount from './ItemCount';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ item }) => {
   console.log(item);
