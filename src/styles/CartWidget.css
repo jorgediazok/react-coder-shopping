@@ -1,3 +1,8 @@
+.cart-shopping-container {
+  /* position: absolute;
+  top: -20px; */
+}
+
 .fa-shopping-cart {
   position: absolute;
   font-size: 2em;

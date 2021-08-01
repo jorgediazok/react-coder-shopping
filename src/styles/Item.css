@@ -24,3 +24,8 @@
     margin-left: 86px;
   }
 }
+
+.card-text {
+  text-align: justify;
+  word-break: break-all;
+}

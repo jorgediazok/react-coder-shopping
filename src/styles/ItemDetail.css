@@ -29,3 +29,9 @@
 .details__description {
   font-weight: 600;
 }
+
+.btn-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

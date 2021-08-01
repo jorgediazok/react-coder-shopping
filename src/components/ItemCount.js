@@ -1,44 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //STYLES
 import '../styles/ItemCount.css';
 
-const ItemCount = ({ stock, initial }) => {
-  const [changeStock, setChangeStock] = useState(stock);
-  const [productsCounter, setProductsCounter] = useState(initial);
+//LE PASA POR PROPS INITIAL Y ON ADD
 
-  const onAddProduct = () => {
-    if (productsCounter < stock) {
-      setChangeStock(changeStock - 1);
-      console.log(changeStock);
-      setProductsCounter(productsCounter + 1);
-    } else {
-      alert('No hay más stock.');
-    }
-  };
-
-  const onSubstractProduct = () => {
-    if (productsCounter > 0) {
-      setChangeStock(changeStock + 1);
-      console.log(changeStock);
-      setProductsCounter(productsCounter - 1);
-    } else {
-      return;
-    }
-  };
-
+const ItemCount = ({ onAdd, onSubstract, counter }) => {
   return (
-    <div className="itemCount">
-      <p className="counter">{productsCounter}</p>
-      <div className="btn-container">
-        <button onClick={onAddProduct} className="btn-counter">
+    <div className='itemCount'>
+      <p className='counter'>{counter}</p>
+
+      <div className='btn-container'>
+        <button onClick={onAdd} className='btn-counter'>
           +
         </button>
-        <button onClick={onSubstractProduct} className="btn-counter">
+        <button onClick={onSubstract} className='btn-counter'>
           -
         </button>
       </div>
-      <button className="btn btn-cart">Agregar al Carrito</button>
     </div>
   );
 };

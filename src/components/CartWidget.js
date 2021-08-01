@@ -5,10 +5,10 @@ import '../styles/CartWidget.css';
 
 const CartWidget = () => {
   return (
-    <>
-      <i className="fas fa-shopping-cart"></i>
-      <span className="badge">0</span>
-    </>
+    <div className='cart-shopping-container'>
+      <i className='fas fa-shopping-cart'></i>
+      <span className='badge'>0</span>
+    </div>
   );
 };
 
