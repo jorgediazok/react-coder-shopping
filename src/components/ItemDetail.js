@@ -12,8 +12,8 @@ const ItemDetail = ({ item }) => {
   const stock = 10;
   const initial = 0;
 
-  const onAdd = () => {
-    setQuantityItems(quantityItems + 1);
+  const onAdd = (quantity) => {
+    setQuantityItems(quantity);
   };
 
   return (
