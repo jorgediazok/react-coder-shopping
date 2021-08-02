@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //COMPONENTS
 import Navbar from './components/Navbar';
 
+//CONTEXT
+import CartContextProvider from './context/CartContext';
+
 //PAGES
 import ItemDetailContainer from './pages/ItemDetailContainer';
 import Cart from './pages/Cart';
@@ -11,7 +14,7 @@ import ItemListContainer from './pages/ItemListContainer';
 
 function App() {
   return (
-    <>
+    <CartContextProvider>
       <Router>
         <Navbar />
         <Switch>
@@ -22,7 +25,7 @@ function App() {
           <Route path='/checkout' component={Checkout} />
         </Switch>
       </Router>
-    </>
+    </CartContextProvider>
   );
 }
 

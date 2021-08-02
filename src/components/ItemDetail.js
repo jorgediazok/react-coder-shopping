@@ -8,25 +8,12 @@ import '../styles/ItemDetail.css';
 import ItemCount from './ItemCount';
 
 const ItemDetail = ({ item }) => {
-  const [stock, setStock] = useState(10);
-  const [counter, setCounter] = useState(0);
+  const [quantityItems, setQuantityItems] = useState(0);
+  const stock = 10;
+  const initial = 0;
 
-  const onAddProduct = () => {
-    if (counter >= 9) {
-      alert('No hay más stock.');
-      return;
-    }
-    setStock(stock - 1);
-    setCounter(counter + 1);
-  };
-
-  const onSubstractProduct = () => {
-    if (counter > 0) {
-      setStock(stock + 1);
-      setCounter(counter - 1);
-    } else {
-      return;
-    }
+  const onAdd = () => {
+    setQuantityItems(quantityItems + 1);
   };
 
   return (
@@ -53,20 +40,13 @@ const ItemDetail = ({ item }) => {
           </div>
 
           <div className='details__inputContainer'>
-            <ItemCount
-              onAdd={onAddProduct}
-              onSubstract={onSubstractProduct}
-              counter={counter}
-            />
-            <div className='btn-cart-container'>
-              {counter > 0 && (
-                <Link to='/cart'>
-                  <button className='btn btn-cart btn-finish'>
-                    Terminar Compra
-                  </button>
-                </Link>
-              )}
-            </div>
+            {quantityItems ? (
+              <Link to='/cart'>
+                <button className='btn-cart btn-finish'>Terminar Compra</button>
+              </Link>
+            ) : (
+              <ItemCount stock={stock} onAdd={onAdd} initial={initial} />
+            )}
           </div>
         </div>
       </div>

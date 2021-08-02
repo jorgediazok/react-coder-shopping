@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { data } from '../data/data';
 
 //CREO EL CONTEXTO
 const CartContext = createContext();
@@ -9,10 +10,10 @@ export const useCartContext = () => useContext(CartContext);
 //CREO EL PROVIDER Y ENVUELVO LA APP EN EL PROVIDER LE PASO LOS VALORES EN VALUE
 
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState('carrito');
+  const [products, setProducts] = useState(data);
 
   return (
-    <CartContext.Provider value={{ cart, setCart }}>
+    <CartContext.Provider value={{ products, setProducts }}>
       {children}
     </CartContext.Provider>
   );

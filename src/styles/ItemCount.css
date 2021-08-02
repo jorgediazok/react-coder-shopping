@@ -13,6 +13,7 @@
   border: 2px solid rgb(248, 46, 92);
   background-color: white;
   text-align: center;
+  margin-right: 8px;
   justify-content: center;
   align-items: center;
   height: 39px;
@@ -27,6 +28,7 @@
   width: 180px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .btn-counter {
@@ -45,8 +47,16 @@
   font-size: 1.4rem;
 }
 
+.btn-cart-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn-cart {
   margin-left: 10px;
+  padding: 8px;
   width: 160px;
   border-radius: 20px;
   background-color: rgb(248, 46, 92);
@@ -60,4 +70,22 @@
 .btn-finish {
   background-color: black;
   padding: 8px;
+  margin-top: 60px;
+  margin-left: 210px;
+}
+
+@media (max-width: 641px) {
+  .btn-finish {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 731px) {
+  .btn-finish {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+  }
 }

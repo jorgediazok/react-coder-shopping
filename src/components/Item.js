@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../context/CartContext';
 
 //STYLES
 import '../styles/Item.css';
 
 const Item = ({ item }) => {
   const { title, price, description, pictureUrl, id } = item;
-
-  const { cart } = useCartContext();
-  console.log(cart);
 
   return (
     <div className='card'>
