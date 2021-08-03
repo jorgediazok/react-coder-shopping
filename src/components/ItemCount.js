@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import CartContext from '../context/CartContext';
 
 //STYLES
 import '../styles/ItemCount.css';
@@ -8,6 +9,10 @@ import '../styles/ItemCount.css';
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [counter, setCounter] = useState(initial);
   const [quantity, setQuantity] = useState(stock);
+
+  //USE CONTEXT
+  const { cart } = useContext(CartContext);
+  console.log(cart);
 
   const onAddOne = () => {
     if (counter >= 9) {
