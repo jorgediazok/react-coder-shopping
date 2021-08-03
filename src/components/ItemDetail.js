@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import CartContext from '../context/CartContext';
 
 //STYLES
 import '../styles/ItemDetail.css';
@@ -11,6 +12,10 @@ const ItemDetail = ({ item }) => {
   const [quantityItems, setQuantityItems] = useState(0);
   const stock = 10;
   const initial = 0;
+
+  //USE CONTEXT
+  const { cart, addToCart } = useContext(CartContext);
+  console.log(cart);
 
   const onAdd = (quantity) => {
     setQuantityItems(quantity);
@@ -42,7 +47,12 @@ const ItemDetail = ({ item }) => {
           <div className='details__inputContainer'>
             {quantityItems ? (
               <Link to='/cart'>
-                <button className='btn-cart btn-finish'>Terminar Compra</button>
+                <button
+                  className='btn-cart btn-finish'
+                  onClick={() => addToCart()}
+                >
+                  Terminar Compra
+                </button>
               </Link>
             ) : (
               <ItemCount stock={stock} onAdd={onAdd} initial={initial} />

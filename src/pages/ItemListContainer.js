@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router';
 
 //IMPORT PRODUCTS FROM CONTEXT
-import { useCartContext } from '../context/CartContext';
+import CartContext from '../context/CartContext';
 
 //COMPONENTS
 import ItemList from '../components/ItemList';
@@ -19,7 +19,7 @@ const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   //USE CONTEXT
-  const { products } = useCartContext();
+  const { products } = useContext(CartContext);
 
   useEffect(() => {
     setLoading(true);

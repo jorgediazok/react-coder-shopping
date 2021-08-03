@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 //CONTEXT
-import CartContextProvider from './context/CartContext';
+import CartState from './context/CartState';
 
 //PAGES
 import ItemDetailContainer from './pages/ItemDetailContainer';
@@ -14,7 +14,7 @@ import ItemListContainer from './pages/ItemListContainer';
 
 function App() {
   return (
-    <CartContextProvider>
+    <CartState>
       <Router>
         <Navbar />
         <Switch>
@@ -25,7 +25,7 @@ function App() {
           <Route path='/checkout' component={Checkout} />
         </Switch>
       </Router>
-    </CartContextProvider>
+    </CartState>
   );
 }
 
