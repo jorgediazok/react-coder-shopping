@@ -7,16 +7,13 @@ import { REMOVE_FROM_CART, ADD_TO_CART, CLEAR_CART } from './Types';
 const CartState = ({ children }) => {
   const initialState = {
     products: data,
-    cart: {
-      item: {},
-      quantity: 0,
-    },
+    cart: [],
   };
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   const addToCart = (item, quantity) => {
-    dispatch({ type: ADD_TO_CART, payload: item, quantity });
+    dispatch({ type: ADD_TO_CART, payload: {item, quantity} });
   };
 
   const removeFromCart = (id) => {

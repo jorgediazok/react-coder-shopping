@@ -10,10 +10,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const [counter, setCounter] = useState(initial);
   const [quantity, setQuantity] = useState(stock);
 
-  //USE CONTEXT
-  const { cart } = useContext(CartContext);
-  console.log(cart);
-
+  
   const onAddOne = () => {
     if (counter >= 9) {
       alert('No hay más stock.');

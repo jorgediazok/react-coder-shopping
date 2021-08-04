@@ -19,6 +19,7 @@ const ItemDetail = ({ item }) => {
 
   const onAdd = (quantity) => {
     setQuantityItems(quantity);
+    addToCart(item, quantity);
   };
 
   return (
@@ -48,9 +49,7 @@ const ItemDetail = ({ item }) => {
             {quantityItems ? (
               <Link to='/cart'>
                 <button
-                  className='btn-cart btn-finish'
-                  onClick={() => addToCart()}
-                >
+                  className='btn-cart btn-finish'>
                   Terminar Compra
                 </button>
               </Link>
