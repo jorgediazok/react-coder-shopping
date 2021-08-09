@@ -12,7 +12,6 @@ import '../styles/ItemListContainer.css';
 import { data } from '../data/data';
 
 const ItemListContainer = () => {
-  const [products] = useState(data);
   const [loading, setLoading] = useState(true);
   const [delayedData, setDelayedData] = useState([]);
   const { categoryId } = useParams();
@@ -22,16 +21,14 @@ const ItemListContainer = () => {
     const timer = setTimeout(() => {
       if (categoryId === undefined) {
         setLoading(false);
-        setDelayedData(products);
+        setDelayedData(data);
       } else {
         setLoading(false);
-        setDelayedData(
-          products?.filter((item) => item.category === categoryId)
-        );
+        setDelayedData(data?.filter((item) => item.category === categoryId));
       }
     }, 2000);
     return () => clearTimeout(timer);
-  }, [products, categoryId]);
+  }, [categoryId]);
 
   return (
     <>

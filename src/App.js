@@ -14,8 +14,8 @@ import ItemListContainer from './pages/ItemListContainer';
 
 function App() {
   return (
-    <UseCartContext>
-      <Router>
+    <Router>
+      <UseCartContext>
         <Navbar />
         <Switch>
           <Route exact path='/' component={ItemListContainer} />
@@ -24,8 +24,8 @@ function App() {
           <Route path='/cart' component={Cart} />
           <Route path='/checkout' component={Checkout} />
         </Switch>
-      </Router>
-    </UseCartContext>
+      </UseCartContext>
+    </Router>
   );
 }
 

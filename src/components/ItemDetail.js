@@ -13,6 +13,7 @@ const ItemDetail = ({ item = {} }) => {
 
   //USE CONTEXT
   const { cart, saveItem } = useContext(CartContext);
+  console.log(cart);
 
   const onAdd = (count) => {
     if (count === 0) {
