@@ -1,8 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-
-//IMPORT PRODUCTS FROM CONTEXT
-import CartContext from '../context/CartContext';
 
 //COMPONENTS
 import ItemList from '../components/ItemList';
@@ -12,14 +9,13 @@ import Loading from '../components/Loading';
 
 //STYLES
 import '../styles/ItemListContainer.css';
+import { data } from '../data/data';
 
 const ItemListContainer = () => {
+  const [products] = useState(data);
   const [loading, setLoading] = useState(true);
   const [delayedData, setDelayedData] = useState([]);
   const { categoryId } = useParams();
-
-  //USE CONTEXT
-  const { products } = useContext(CartContext);
 
   useEffect(() => {
     setLoading(true);

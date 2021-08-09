@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import CartContext from '../context/CartContext';
+import React, { useState } from 'react';
 
 //STYLES
 import '../styles/ItemCount.css';
@@ -7,41 +6,37 @@ import '../styles/ItemCount.css';
 //LE PASA POR PROPS INITIAL Y ON ADD
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-  const [counter, setCounter] = useState(initial);
-  const [quantity, setQuantity] = useState(stock);
+  const [cantidad, setCantidad] = useState(initial);
 
-  
-  const onAddOne = () => {
-    if (counter >= 9) {
-      alert('No hay más stock.');
-      return;
+  const handleAdd = () => {
+    if (cantidad < stock) {
+      setCantidad(cantidad + 1);
     }
-    setQuantity(stock - 1);
-    setCounter(counter + 1);
   };
 
-  const onRemoveOne = () => {
-    if (counter > 0) {
-      setQuantity(stock + 1);
-      setCounter(counter - 1);
-    } else {
-      return;
+  const handleRemove = () => {
+    if (cantidad > initial) {
+      setCantidad(cantidad - 1);
     }
+  };
+
+  const handleOnAdd = () => {
+    onAdd(cantidad);
   };
 
   return (
     <div className='itemCount'>
       <div className='btn-container'>
-        <button onClick={onAddOne} className='btn-counter'>
+        <button onClick={handleAdd} className='btn-counter'>
           +
         </button>
-        <p className='counter'>{counter}</p>
-        <button onClick={onRemoveOne} className='btn-counter'>
+        <p className='counter'>{cantidad}</p>
+        <button onClick={handleRemove} className='btn-counter'>
           -
         </button>
       </div>
       <div className='btn-cart-container'>
-        <button onClick={() => onAdd(counter)} className='btn-cart'>
+        <button onClick={handleOnAdd} className='btn-cart'>
           Comprar
         </button>
       </div>
