@@ -12,7 +12,7 @@ const CartWidget = () => {
   return (
     <div className='cart-shopping-container'>
       <i className='fas fa-shopping-cart'></i>
-      <span className='badge'>{cart[0].quantity}</span>
+      <span className='badge'>{cart.length}</span>
     </div>
   );
 };

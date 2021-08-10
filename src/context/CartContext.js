@@ -17,7 +17,7 @@ export default function UseCartContext({ children }) {
   };
 
   const removeItem = (oldItemId) => {
-    const oldList = cart.filter((item) => item.item.id !== oldItemId);
+    cart.filter((item) => item.item.id !== oldItemId);
   };
 
   const cleanCart = () => {
@@ -26,7 +26,7 @@ export default function UseCartContext({ children }) {
 
   const calculatePrice = () => {
     return cart.reduce(
-      (acum, value) => acum + value.quantity * value.item[0].price, //POR QUË ME OBLIGA A PONER EL INDICE?
+      (acum, value) => acum + value.quantity * value.item.price,
       0
     );
   };

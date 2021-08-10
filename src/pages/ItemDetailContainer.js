@@ -11,7 +11,7 @@ import { data } from '../data/data';
 import '../styles/ItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const { id } = useParams();
 
   useEffect(() => {

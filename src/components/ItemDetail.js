@@ -20,7 +20,7 @@ const ItemDetail = ({ item = {} }) => {
       return;
     }
     setQuantityItems(count);
-    saveItem({ item: item, quantity: count });
+    saveItem({ item: item[0], quantity: count });
   };
 
   return (
