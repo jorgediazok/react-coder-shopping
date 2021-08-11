@@ -5,15 +5,15 @@ import { CartContext } from '../context/CartContext';
 import '../styles/CartWidget.css';
 
 const CartWidget = () => {
-  const { cart } = useContext(CartContext);
-
-  console.log(cart);
+  const { calculateSize } = useContext(CartContext);
 
   return (
-    <div className='cart-shopping-container'>
-      <i className='fas fa-shopping-cart'></i>
-      <span className='badge'>{cart.length}</span>
-    </div>
+    calculateSize() > 0 && (
+      <div className='cart-shopping-container'>
+        <i className='fas fa-shopping-cart'></i>
+        <span className='badge'>{calculateSize()}</span>
+      </div>
+    )
   );
 };
 

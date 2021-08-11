@@ -33,18 +33,20 @@ const Cart = () => {
           </div>
         </div>
       ))}
-      <div className='cartBasketRight'>
-        <h1 className='cartTitle'>Subtotal</h1>
-        <p className='cartPrice'>$ {calculatePrice()}</p>
-        <div className='cartItemButtons'>
-          <Link to='/checkout'>
-            <button className='btn btn-dark cartItemPagar'>Pagar</button>
-          </Link>
-          <button className='btn btn-dark cartItemPagar' onClick={cleanCart}>
-            Reset
-          </button>
+      {cart.length > 0 && (
+        <div className='cartBasketRight'>
+          <h1 className='cartTitle'>Subtotal</h1>
+          <p className='cartPrice'>$ {calculatePrice()}</p>
+          <div className='cartItemButtons'>
+            <Link to='/checkout'>
+              <button className='btn btn-dark cartItemPagar'>Pagar</button>
+            </Link>
+            <button className='btn btn-dark cartItemPagar' onClick={cleanCart}>
+              Reset
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

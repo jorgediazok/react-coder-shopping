@@ -17,7 +17,7 @@ export default function UseCartContext({ children }) {
   };
 
   const removeItem = (oldItemId) => {
-    cart.filter((item) => item.item.id !== oldItemId);
+    setCart(cart.filter((item) => item.item.id !== oldItemId));
   };
 
   const cleanCart = () => {
