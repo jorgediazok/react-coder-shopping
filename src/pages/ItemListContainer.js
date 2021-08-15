@@ -36,10 +36,11 @@ const ItemListContainer = () => {
         const dbQuery = getFirestore();
         dbQuery
           .collection('ItemCollection')
+          .where('category', '==', categoryId)
           .get()
           .then((response) =>
             setData(
-              response.docs.filter((item) => item.category === categoryId)
+              response.docs.map((item) => ({ ...item.data(), id: item.id }))
             )
           );
       }
