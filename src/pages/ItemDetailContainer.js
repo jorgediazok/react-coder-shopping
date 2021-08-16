@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
         .get()
         .then((response) => setItem({ ...response.data(), id: response.id }));
       setLoading(false);
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [id]);

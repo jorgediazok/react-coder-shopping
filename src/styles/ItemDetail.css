@@ -5,12 +5,23 @@
 .details__inputContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .details__input {
   border-radius: 5px;
   outline: none;
   border: none;
+}
+
+.details__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+  margin-bottom: 20px;
+  gap: 20px;
 }
 
 .details__button {
@@ -20,6 +31,30 @@
   color: white;
   width: 200px;
   border-radius: 5px;
+}
+
+.btn-cart-finish {
+  border-radius: 20px;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  background-color: black;
+  padding: 8px;
+}
+
+.btn-cart-finish2 {
+  border-radius: 20px;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  background-color: rgb(248, 46, 92);
+  padding: 8px;
 }
 
 .details__button:hover {

@@ -1,13 +1,50 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { getFirestore } from '../firebase';
 import { BsTrash } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import Alert from 'sweetalert2';
+import 'firebase/firestore';
+import firebase from 'firebase';
 
 import '../styles/Cart.css';
 
 const Cart = () => {
   const { cart, calculatePrice, removeItem, cleanCart } =
     useContext(CartContext);
+  const [buyer, setBuyer] = useState(initialState);
+  const order = {
+    buyer: buyer,
+    item: cart,
+    date: firebase.firestore.Timestamp.fromDate(new Date()),
+  };
+  const history = useHistory();
+
+  console.log(order);
+
+  const handleChange = (e) => {
+    setBuyer({
+      ...buyer,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const db = getFirestore();
+    db.collection('order')
+      .add(order)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+    setBuyer(initialState);
+    cleanCart();
+    new Alert(
+      'Compra Confirmada',
+      'Se le ha enviado un email con los detalles.',
+      'success'
+    );
+    history.push('/');
+  };
 
   return (
     <div className='cartContainer'>
@@ -28,27 +65,75 @@ const Cart = () => {
             <p className='cartItemCategory'>Categoría: {item.item.category}</p>
             <p className='cartItemDescription'>{item.item.description}</p>
             <p className='cartItemQuantity'>
-              Cantidad: {item.quantity} | Precio Individual: $ {item.item.price}
+              Cantidad: {item.quantity} | P/Unitario: $ {item.item.price}
             </p>
           </div>
         </div>
       ))}
-      {cart.length > 0 && (
+
+      {cart.length > 0 ? (
         <div className='cartBasketRight'>
           <h1 className='cartTitle'>Subtotal</h1>
           <p className='cartPrice'>$ {calculatePrice()}</p>
-          <div className='cartItemButtons'>
-            <Link to='/checkout'>
-              <button className='btn btn-dark cartItemPagar'>Pagar</button>
-            </Link>
-            <button className='btn btn-dark cartItemPagar' onClick={cleanCart}>
-              Reset
-            </button>
+          <h1 className='cartTitle'>Contacto</h1>
+          <div className='cartBasketOrder'>
+            <form
+              onSubmit={handleSubmit}
+              onChange={handleChange}
+              className='cartBasketForm'
+            >
+              <input
+                type='text'
+                placeholder='Nombre'
+                name='name'
+                value={buyer.name}
+              />
+              <input
+                type='phone'
+                placeholder='Telefono'
+                name='phone'
+                value={buyer.phone}
+              />
+              <input
+                type='email'
+                placeholder='Email'
+                name='email'
+                required
+                value={buyer.email}
+              />
+              <input
+                type='email'
+                placeholder='Confirmar Email'
+                name='confirm_email'
+                required
+                value={buyer.confirm_email}
+              />
+              <div className='cartItemButtons'>
+                <button type='submit' className='btn btn-dark cartItemPagar'>
+                  Pagar
+                </button>
+                <button
+                  className='btn btn-dark cartItemPagar'
+                  onClick={cleanCart}
+                >
+                  Reset
+                </button>
+              </div>
+            </form>
           </div>
         </div>
+      ) : (
+        <p className='cartNoItems'>No hay Items en el carro</p>
       )}
     </div>
   );
 };
 
 export default Cart;
+
+const initialState = {
+  name: '',
+  phone: '',
+  email: '',
+  confirm_email: '',
+};

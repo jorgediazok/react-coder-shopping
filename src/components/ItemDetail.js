@@ -43,9 +43,14 @@ const ItemDetail = ({ item = {} }) => {
 
           <div className='details__inputContainer'>
             {quantityItems ? (
-              <Link to='/cart'>
-                <button className='btn-cart btn-finish'>Terminar Compra</button>
-              </Link>
+              <div className='details__buttons'>
+                <Link to='/cart'>
+                  <button className='btn-cart-finish'>Terminar Compra</button>
+                </Link>
+                <Link to='/'>
+                  <button className='btn-cart-finish2'>Seguir Comprando</button>
+                </Link>
+              </div>
             ) : (
               <ItemCount stock={10} onAdd={onAdd} initial={1} />
             )}
