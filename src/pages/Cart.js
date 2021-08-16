@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { getFirestore } from '../firebase';
 import { BsTrash } from 'react-icons/bs';
 import { useHistory } from 'react-router-dom';
@@ -13,14 +13,13 @@ const Cart = () => {
   const { cart, calculatePrice, removeItem, cleanCart } =
     useContext(CartContext);
   const [buyer, setBuyer] = useState(initialState);
+  const [id, setId] = useState('');
   const order = {
     buyer: buyer,
     item: cart,
     date: firebase.firestore.Timestamp.fromDate(new Date()),
   };
   const history = useHistory();
-
-  console.log(order);
 
   const handleChange = (e) => {
     setBuyer({
@@ -32,19 +31,28 @@ const Cart = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const db = getFirestore();
-    db.collection('order')
-      .add(order)
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
-    setBuyer(initialState);
-    cleanCart();
-    new Alert(
-      'Compra Confirmada',
-      'Se le ha enviado un email con los detalles.',
-      'success'
-    );
-    history.push('/');
+    if (buyer.email !== buyer.confirm_email) {
+      new Alert('Error', 'Los dos mails deben coincidir', 'error');
+    } else {
+      db.collection('order')
+        .add(order)
+        .then((response) => setId(response.id))
+        .catch((err) => console.log(err));
+    }
   };
+
+  useEffect(() => {
+    if (id) {
+      setBuyer(initialState);
+      cleanCart();
+      new Alert(
+        `Compra Confirmada. Su N° de ID es: ${id}`,
+        'Se le ha enviado un email con los detalles.',
+        'success'
+      );
+      history.push('/');
+    }
+  }, [cleanCart, id, history]);
 
   return (
     <div className='cartContainer'>
