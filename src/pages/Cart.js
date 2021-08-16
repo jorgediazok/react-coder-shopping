@@ -1,17 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { getFirestore } from '../firebase';
-import { BsTrash } from 'react-icons/bs';
 import { useHistory } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import Alert from 'sweetalert2';
+import Form from '../components/Form';
 import 'firebase/firestore';
 import firebase from 'firebase';
 
 import '../styles/Cart.css';
+import CartItem from '../components/CartItem';
 
 const Cart = () => {
-  const { cart, calculatePrice, removeItem, cleanCart } =
-    useContext(CartContext);
+  const { cart, calculatePrice, cleanCart } = useContext(CartContext);
   const [buyer, setBuyer] = useState(initialState);
   const [id, setId] = useState('');
   const order = {
@@ -60,23 +60,7 @@ const Cart = () => {
         {cart.length === 0 ? 'Tu carrito está vacío.' : ''}
       </h1>
       {cart.map((item) => (
-        <div className='cartBasketLeft' key={item.item.id}>
-          <img src={item.item.pictureUrl} alt='' className='cartItemImage' />
-          <div className='CartBasketLeft__Info'>
-            <h3>
-              <BsTrash
-                className='cartItemIcon'
-                onClick={() => removeItem(item.item.id)}
-              />
-            </h3>
-            <p className='cartItemTitle'>{item.item.title}</p>
-            <p className='cartItemCategory'>Categoría: {item.item.category}</p>
-            <p className='cartItemDescription'>{item.item.description}</p>
-            <p className='cartItemQuantity'>
-              Cantidad: {item.quantity} | P/Unitario: $ {item.item.price}
-            </p>
-          </div>
-        </div>
+        <CartItem item={item} />
       ))}
 
       {cart.length > 0 ? (
@@ -85,49 +69,11 @@ const Cart = () => {
           <p className='cartPrice'>$ {calculatePrice()}</p>
           <h1 className='cartTitle'>Contacto</h1>
           <div className='cartBasketOrder'>
-            <form
-              onSubmit={handleSubmit}
-              onChange={handleChange}
-              className='cartBasketForm'
-            >
-              <input
-                type='text'
-                placeholder='Nombre'
-                name='name'
-                value={buyer.name}
-              />
-              <input
-                type='phone'
-                placeholder='Telefono'
-                name='phone'
-                value={buyer.phone}
-              />
-              <input
-                type='email'
-                placeholder='Email'
-                name='email'
-                required
-                value={buyer.email}
-              />
-              <input
-                type='email'
-                placeholder='Confirmar Email'
-                name='confirm_email'
-                required
-                value={buyer.confirm_email}
-              />
-              <div className='cartItemButtons'>
-                <button type='submit' className='btn btn-dark cartItemPagar'>
-                  Pagar
-                </button>
-                <button
-                  className='btn btn-dark cartItemPagar'
-                  onClick={cleanCart}
-                >
-                  Reset
-                </button>
-              </div>
-            </form>
+            <Form
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              buyer={buyer}
+            />
           </div>
         </div>
       ) : (

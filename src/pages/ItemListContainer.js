@@ -10,18 +10,20 @@ import ItemList from '../components/ItemList';
 //SPINNER
 import Loading from '../components/Loading';
 
+//ALERT
+import Alert from '../Utils/Alert';
+
 //STYLES
 import '../styles/ItemListContainer.css';
 
 const ItemListContainer = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const { categoryId } = useParams();
 
   useEffect(() => {
     setLoading(true);
-
-    const timer = setTimeout(() => {
+    try {
       if (categoryId === undefined) {
         const dbQuery = getFirestore();
         dbQuery
@@ -44,10 +46,14 @@ const ItemListContainer = () => {
             )
           );
       }
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    } catch (error) {
+      new Alert(
+        'Algo salió mal. Intente nuevamente más tarde.',
+        'Error',
+        'error'
+      );
+    }
+    setLoading(false);
   }, [categoryId]);
 
   return (
