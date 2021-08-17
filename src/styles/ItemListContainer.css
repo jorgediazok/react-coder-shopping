@@ -6,6 +6,12 @@
   margin-top: 10px;
 }
 
+.itemListContainer__title {
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .greeting {
   color: rgb(248, 26, 92);
 }
@@ -13,5 +19,9 @@
 @media screen and (max-width: 768px) {
   .greeting {
     font-size: 25px;
+  }
+
+  .itemListContainer__title {
+    font-size: 1.2em;
   }
 }

@@ -2,6 +2,10 @@
   border-radius: 5px !important;
 }
 
+.details__container {
+  border-radius: 15px;
+}
+
 .details__inputContainer {
   display: flex;
   flex-direction: column;
@@ -13,6 +17,10 @@
   border-radius: 5px;
   outline: none;
   border: none;
+}
+
+.details__image {
+  border-radius: 15px;
 }
 
 .details__buttons {

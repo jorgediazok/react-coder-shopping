@@ -24,12 +24,16 @@ const ItemDetail = ({ item = {} }) => {
 
   return (
     <div
-      className='container my-5 pt-4'
+      className='container my-5 pt-4 details__container'
       style={{ background: 'lightgray', borderRadius: '20px' }}
     >
       <div className='row mt-4'>
         <div className='col-lg-5 col-md-12 col-12'>
-          <img src={item?.pictureUrl} alt='' className='img-fluid w-100 pb-5' />
+          <img
+            src={item?.pictureUrl}
+            alt=''
+            className='img-fluid w-100 pb-5 details__image'
+          />
         </div>
         <div className='col-lg-6 col-md-12 col-12'>
           <h6>{item?.category}</h6>

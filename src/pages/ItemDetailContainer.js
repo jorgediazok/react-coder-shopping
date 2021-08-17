@@ -8,9 +8,6 @@ import ItemDetail from '../components/ItemDetail';
 //SPINNER
 import Loading from '../components/Loading';
 
-//STYLES
-import '../styles/ItemDetailContainer.css';
-
 const ItemDetailContainer = () => {
   const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(false);

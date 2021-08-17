@@ -23,6 +23,7 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setLoading(true);
+
     try {
       if (categoryId === undefined) {
         const dbQuery = getFirestore();
@@ -58,8 +59,12 @@ const ItemListContainer = () => {
 
   return (
     <>
+      {loading && <Loading />}
       <div className='itemsContainer'>
-        {loading ? <Loading /> : <ItemList items={data} />}
+        <h1 className='itemListContainer__title'>
+          Productos para desarrolladores 💻
+        </h1>
+        <ItemList items={data} />
       </div>
     </>
   );
