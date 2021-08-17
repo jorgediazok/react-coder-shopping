@@ -1,3 +1,6 @@
+Esta aplicación fue realizada por Jorge Díaz para el proyecto final del curso
+de React de Coderhouse.
+
 Este proyecto se trata de una Tienda que vende productos para desarrolladores y
 se divide en 3 categorías: COMFORT, TECNOLOGÍA Y ACCESORIOS.
 
