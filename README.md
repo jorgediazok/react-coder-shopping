@@ -1,10 +1,14 @@
 Este proyecto se trata de una Tienda que vende productos para desarrolladores y
 se divide en 3 categorías: COMFORT, TECNOLOGÍA Y ACCESORIOS.
 
-La única librería externa que fue utilizada (hasta el momento de la entrega
-intermedia) es Bootstrap. El resto de los estilos fue diseñado a mano.
+Como librerías externas fueron utilizadas tanto Bootstrap (para definir estilos),
+react-router-dom para el manejo de rutas y Sweet Alert para envío de alertas
+de visualización para el usuario.
 
-Se incluye una imagen de un GIF para cuando está cargando la página.
+Se incluye una imagen de un GIF para cuando la página está en modo Loading.
 
-El objetivo es crear una tienda con más productos, pero por el momento
-solo tengo una MOCK con 4 productos de prueba.
+La base de datos se encuentra en Firebase y es donde se encuentran cargados
+tanto los productos que la tienda ofrece así como donde quedan guardadas
+las ordenes que los usuarios piden.
+
+Los estados fueron manejados a través de React Context.
